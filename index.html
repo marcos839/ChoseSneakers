@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar conta | Chose Sneakers</title>
+  <link rel="icon" type="image/png" href="chose sneakers.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Isometra&family=Zeyada&display=swap');
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background-image: linear-gradient(to top right, black, rgba(119, 0, 0));
+      color: #6e6e6e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .cadastro-container {
+      width: 100%;
+      max-width: 440px;
+      padding: 36px;
+      background: #ffffff;
+      border: 1px solid #333;
+      border-radius: 16px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      color: #111;
+      font-family: 'isometra', sans-serif;
+    }
+
+    .logo span {
+      color: #e63946;
+    }
+
+    .subtitulo {
+      color: #aaa;
+      text-align: center;
+      margin-bottom: 28px;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .descricao {
+      color: #2c2c2c;
+      font-size: 14px;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .campo {
+      margin-bottom: 17px;
+    }
+
+    .campo label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #000000;
+    }
+
+    .campo input {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background: #111;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .campo input:focus {
+      border-color: #e63946;
+      box-shadow: 0 0 0 2px rgba(230, 57, 70, 0.15);
+    }
+
+    .botao-cadastro {
+      width: 100%;
+      padding: 14px;
+      margin-top: 6px;
+      border: none;
+      border-radius: 8px;
+      background: #860000;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .botao-cadastro:hover {
+      background: #490000;
+    }
+
+    .botao-cadastro:disabled {
+      opacity: 0.65;
+      cursor: wait;
+    }
+
+    .mensagem {
+      display: none;
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .mensagem.erro {
+      display: block;
+      color: #ffb8bd;
+      background: #421e22;
+      border: 1px solid #733038;
+    }
+
+    .mensagem.sucesso {
+      display: block;
+      color: #b9f6ca;
+      background: #173624;
+      border: 1px solid #286a41;
+    }
+
+    .rodape {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 14px;
+      color: #000000;
+      line-height: 1.8;
+    }
+
+    a {
+      color: #ff5965;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .voltar {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      font-size: 14px;
+      color: #0c0c0c;
+    }
+
+    @media (max-width: 480px) {
+      .cadastro-container {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="cadastro-container">
+    <div class="logo">Chose<span>Sneakers</span></div>
+    <p class="subtitulo">Seu próximo passo começa aqui.</p>
+
+    <h1>Criar conta</h1>
+    <p class="descricao">
+      Aqui temos os melhores tênis para você usar em quadras.
+    </p>
+
+    <form id="formCadastro">
+      <div class="campo">
+        <label for="nome">Nome completo</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          placeholder="Digite seu nome"
+          autocomplete="name"
+          required
+          maxlength="100"
+        >
+      </div>
+
+      <div class="campo">
+        <label for="email">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="voce@exemplo.com"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          placeholder="Crie uma senha"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        >
+      </div>
+
+      <div class="campo">
+        <label for="confirmarSenha">Confirmar senha</label>
+        <input
+          type="password"
+          id="confirmarSenha"
+          name="confirmarSenha"
+          placeholder="Digite a senha novamente"
+          autocomplete="new-password"
+          minlength="6"
+          required
+        >
+      </div>
+
+      <button type="submit" class="botao-cadastro" id="botaoCadastro">
+        DO IT!
+      </button>
+
+      <div
+        id="mensagem"
+        class="mensagem"
+        role="status"
+        aria-live="polite"
+      ></div>
+    </form>
+
+    <div class="rodape">
+      Já tem uma conta?
+      <a href="login.html">Entrar</a>
+    </div>
+
+    <a href="file:///C:/Users/marcos/OneDrive/Documentos/tenis%20SITI/home.html" class="voltar">← Voltar para a loja</a>
+  </main>
+
+  <script type="module">
+    import { auth } from "./firebase.js";
+    import {
+      createUserWithEmailAndPassword,
+      updateProfile
+    } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+    import { updateProfile } from
+    "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
+
+    const form = document.getElementById("formCadastro");
+    const campoNome = document.getElementById("nome");
+    const campoEmail = document.getElementById("email");
+    const campoSenha = document.getElementById("senha");
+    const campoConfirmarSenha = document.getElementById("confirmarSenha");
+    const botao = document.getElementById("botaoCadastro");
+    const mensagem = document.getElementById("mensagem");
+
+    function mostrarMensagem(texto, tipo) {
+      mensagem.textContent = texto;
+      mensagem.className = "mensagem " + tipo;
+    }
+
+    function traduzirErro(codigo) {
+      const erros = {
+        "auth/email-already-in-use":
+          "Este e-mail já está cadastrado. Tente entrar na sua conta.",
+        "auth/invalid-email":
+          "Digite um endereço de e-mail válido.",
+        "auth/weak-password":
+          "Sua senha é muito fraca. Crie uma senha mais segura.",
+        "auth/network-request-failed":
+          "Falha de conexão. Verifique sua internet e tente novamente.",
+        "auth/operation-not-allowed":
+          "O cadastro por e-mail ainda não está habilitado no Firebase.",
+        "auth/too-many-requests":
+          "Muitas tentativas. Aguarde um pouco e tente novamente."
+      };
+
+      return erros[codigo] ||
+        "Não foi possível concluir o cadastro. Confira os dados e tente novamente.";
+    }
+
+    form.addEventListener("submit", async (evento) => {
+      evento.preventDefault();
+
+      const nome = campoNome.value.trim();
+      const email = campoEmail.value.trim();
+      const senha = campoSenha.value;
+      const confirmarSenha = campoConfirmarSenha.value;
+
+      if (!nome) {
+        mostrarMensagem("Digite seu nome completo.", "erro");
+        campoNome.focus();
+        return;
+      }
+
+      if (senha.length < 6) {
+        mostrarMensagem(
+          "A senha precisa ter pelo menos 6 caracteres.",
+          "erro"
+        );
+        campoSenha.focus();
+        return;
+      }
+
+      if (senha !== confirmarSenha) {
+        mostrarMensagem("As senhas não são iguais.", "erro");
+        campoConfirmarSenha.focus();
+        return;
+      }
+
+      botao.disabled = true;
+      botao.textContent = "Criando conta...";
+      mensagem.className = "mensagem";
+      mensagem.textContent = "";
+
+      let usuarioCriado = null;
+
+      try {
+        const resultado = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          senha
+        );
+
+        usuarioCriado = resultado.user;
+
+        await updateProfile(usuarioCriado, {
+          displayName: nome
+        });
+
+        mostrarMensagem(
+          "Conta criada com sucesso! Redirecionando para a loja...",
+          "sucesso"
+        );
+
+        form.reset();
+
+        window.location.href = "cadastro.html";
+      } catch (erro) {
+        console.error("Erro no cadastro:", erro);
+
+        if (usuarioCriado) {
+          mostrarMensagem(
+            "Sua conta foi criada, mas não conseguimos salvar seu nome. Entre na conta para continuar.",
+            "erro"
+          );
+        } else {
+          mostrarMensagem(traduzirErro(erro.code), "erro");
+        }
+
+        botao.disabled = false;
+        botao.textContent = "Criar minha conta";
+      }
+    });
+
+    console.log("Firebase Auth carregado:", !!auth)
+  </script>
+</body>
+</html>
